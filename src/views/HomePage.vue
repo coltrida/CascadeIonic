@@ -12,7 +12,17 @@
     <ion-content :fullscreen="true">
 
       <div id="container">
-
+        <ion-list style="margin-top: 20px">
+          <ion-item v-for="album in getRecentlyAlbumsAdded.albums" :key="album.id">
+            <ion-img slot="start" style="width: 80px"
+                     :src="album.imageUri"
+            ></ion-img>
+            <ion-label>
+              <h3>{{album.name}}</h3>
+              <p>{{album.artistHeadline}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
       </div>
     </ion-content>
 
@@ -20,23 +30,34 @@
 </template>
 
 <script>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton} from '@ionic/vue';
+import { mapGetters, mapActions } from 'vuex'
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton,
+  IonItem, IonLabel, IonList, IonImg} from '@ionic/vue';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'HomePage',
-  components: {IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton},
+  components: {IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton,
+    IonItem, IonLabel, IonList,IonImg},
 
   mounted() {
-
+    this.loadRecentlyAlbumsAdded();
   },
 
   methods:{
+    ...mapActions({
+      fetchRecentlyAlbumsAdded: 'fetchRecentlyAlbumsAdded'
+    }),
 
+    loadRecentlyAlbumsAdded(){
+      this.fetchRecentlyAlbumsAdded();
+    }
   },
 
   computed:{
-
+    ...mapGetters({
+      getRecentlyAlbumsAdded: 'getRecentlyAlbumsAdded'
+    })
   }
 });
 </script>

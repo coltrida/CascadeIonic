@@ -13,7 +13,7 @@
 
       <div id="container">
         <ion-list style="margin-top: 20px">
-          <ion-item v-for="song in getAlbumWithSongs.songs" :key="song.id">
+          <ion-item v-for="song in getAlbumWithSongs.songs" :key="song.id" @click="playSong(song.path)">
             <ion-icon size="large" style="margin-right: 10px" ios="ios-person" md="md-person"></ion-icon>
             <ion-label>{{song.name}}</ion-label>
           </ion-item>
@@ -46,6 +46,13 @@
 
       loadAlbumWithSongs(){
         this.fetchAlbumWithSongs(this.$route.params.idAlbum);
+      },
+
+      playSong(path){
+        /*let song = new Audio;
+        song.src = path
+        song.play();*/
+        this.$store.commit('playSongMutation', path);
       }
     },
 

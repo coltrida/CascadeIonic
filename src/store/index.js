@@ -7,6 +7,8 @@ const state = {
     artists: [],
     recentlyAlbumsAdded: [],
     albumWithSongs: [],
+    playSongBool: false,
+    player:[]
 }
 
 const getters = {
@@ -28,6 +30,14 @@ const getters = {
 
     getAlbumWithSongs(state){
         return state.albumWithSongs;
+    },
+
+    getPlaySongBool(state){
+        return state.playSongBool;
+    },
+
+    getPathPlaySong(state){
+        return state.pathPlaySong;
     },
 }
 
@@ -78,6 +88,16 @@ const mutations = {
     fetchAlbumWithSongs(state, payload){
         state.albumWithSongs = payload;
     },
+
+    playSongMutation(state, path){
+
+        if (state.playSongBool === false){
+            state.player = new Audio;
+            state.playSongBool = true;
+        }
+        state.player.src = path;
+        state.player.play();
+    }
 }
 
 export default createStore({

@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
   import { mapGetters, mapActions } from 'vuex'
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton,
     IonItem, IonLabel, IonList, IonIcon} from '@ionic/vue';

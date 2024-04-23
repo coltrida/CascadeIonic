@@ -10,15 +10,9 @@
     </ion-header>
 
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">List Of Albums</ion-title>
-        </ion-toolbar>
-      </ion-header>
 
       <div id="container">
-        <strong class="capitalize">List Of Albums</strong>
-        <ion-list>
+        <ion-list style="margin-top: 20px">
           <ion-item v-for="album in getAlbums" :key="album.id" style="margin-bottom: 15px">
             <ion-img slot="start" style="width: 80px"
                      :src="'https://www.ca-scade.com/'+album.cover"

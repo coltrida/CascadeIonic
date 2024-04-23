@@ -30,7 +30,7 @@
   </ion-app>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {
   IonApp,
   IonContent,
@@ -66,20 +66,20 @@ import {
 const selectedIndex = ref(0);
 const appPages = [
   {
-    title: 'Inbox',
-    url: '/folder/Inbox',
+    title: 'List Of Users',
+    url: '/folder/listOfUser',
     iosIcon: mailOutline,
     mdIcon: mailSharp,
   },
   {
-    title: 'Outbox',
-    url: '/folder/Outbox',
+    title: 'List Of Albums',
+    url: '/folder/listOfAlbums',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp,
   },
   {
-    title: 'Favorites',
-    url: '/folder/Favorites',
+    title: 'List Of Artists',
+    url: '/folder/listOfArtists',
     iosIcon: heartOutline,
     mdIcon: heartSharp,
   },

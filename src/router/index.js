@@ -9,6 +9,7 @@ const routes = [
   { path: '/folder/listOfUser', component: () => import ('../views/UsersPage.vue') },
   { path: '/folder/listOfAlbums', component: () => import ('../views/AlbumsPage.vue') },
   { path: '/folder/listOfArtists', component: () => import ('../views/ArtistsPage.vue') },
+  { path: '/folder/albumsWithSongs/:idAlbum', name:'albumsWithSongs', component: () => import ('../views/AlbumWithSongsPage.vue') },
   {
     path: '/folder/:id',
     component: () => import ('../views/FolderPage.vue')

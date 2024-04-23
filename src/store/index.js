@@ -6,6 +6,7 @@ const state = {
     albums: [],
     artists: [],
     recentlyAlbumsAdded: [],
+    albumWithSongs: [],
 }
 
 const getters = {
@@ -23,6 +24,10 @@ const getters = {
 
     getRecentlyAlbumsAdded(state){
         return state.recentlyAlbumsAdded;
+    },
+
+    getAlbumWithSongs(state){
+        return state.albumWithSongs;
     },
 }
 
@@ -46,6 +51,11 @@ const actions = {
         const response = await axios.get('https://www.ca-scade.com/api/recentlyAlbumsAdded');
         commit('fetchRecentlyAlbumsAdded', response.data);
     },
+
+    async fetchAlbumWithSongs({commit}, idAlbum){
+        const response = await axios.get('https://www.ca-scade.com/api/albumWithSongs/'+idAlbum);
+        commit('fetchAlbumWithSongs', response.data);
+    },
 }
 
 const mutations = {
@@ -63,6 +73,10 @@ const mutations = {
 
     fetchRecentlyAlbumsAdded(state, payload){
         state.recentlyAlbumsAdded = payload;
+    },
+
+    fetchAlbumWithSongs(state, payload){
+        state.albumWithSongs = payload;
     },
 }
 

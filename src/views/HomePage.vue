@@ -10,17 +10,23 @@
     </ion-header>
 
     <ion-content :fullscreen="true">
-
       <div id="container">
         <ion-list style="margin-top: 20px">
-          <ion-item v-for="album in getRecentlyAlbumsAdded.albums" :key="album.id">
-            <ion-img slot="start" style="width: 80px"
-                     :src="album.imageUri"
-            ></ion-img>
-            <ion-label>
-              <h3>{{album.name}}</h3>
-              <p>{{album.artistHeadline}}</p>
-            </ion-label>
+          <h2>Recently Albums Added</h2>
+          <ion-item
+              v-for="album in getRecentlyAlbumsAdded.albums"
+              :key="album.id"
+              style="margin-bottom: 10px"
+          >
+            <RouterLink :to="{ name: 'albumsWithSongs', params: { idAlbum: album.id } }">
+                <ion-img slot="start" style="width: 80px"
+                         :src="album.imageUri"
+                ></ion-img>
+                <ion-label>
+                  <h3>{{album.name}}</h3>
+                  <p>{{album.artistHeadline}}</p>
+                </ion-label>
+            </RouterLink>
           </ion-item>
         </ion-list>
       </div>
